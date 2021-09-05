@@ -10,18 +10,33 @@ import {
   SampleIcon,
 } from './styles';
 
-interface HighLightCardProps {}
+interface HighLightCardProps {
+  type: 'up' | 'down' | 'total';
+  title: string;
+  amount: string;
+  lastTransaction: string;
+}
 
-const HighLightCard: React.FC = () => {
+const HighLightCard: React.FC<HighLightCardProps> = ({
+  type,
+  title,
+  amount,
+  lastTransaction,
+}) => {
+  const icon = {
+    up: 'arrow-up-circle',
+    down: 'arrow-down-circle',
+    total: 'dollar-sign',
+  };
   return (
-    <Container>
+    <Container type={type}>
       <Header>
-        <Title>Entradas</Title>
-        <SampleIcon name="arrow-up-circle" source="Feather" />
+        <Title type={type}>{title}</Title>
+        <SampleIcon name={icon[type]} source="Feather" type={type} />
       </Header>
       <Footer>
-        <Amount>R$ 17.400,00</Amount>
-        <LastTransaction>Última entrada dia 13 de abril</LastTransaction>
+        <Amount type={type}>{amount}</Amount>
+        <LastTransaction type={type}>{lastTransaction}</LastTransaction>
       </Footer>
     </Container>
   );
