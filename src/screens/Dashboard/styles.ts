@@ -6,8 +6,3 @@ export const Container = styled.View`
   flex: 1;
 `;
 
-export const Header = styled.View`
-  background-color: ${({theme}) => theme.colors.primary};
-  height: ${RFPercentage(42)}px;
-  width: 100%;
-`;
