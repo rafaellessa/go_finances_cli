@@ -1,12 +1,18 @@
 import React from 'react';
 import Header from '../../components/Header';
+import HighLightCard from '../../components/HighLightCard';
 
-import {Container} from './styles';
+import {Container, HighLightCards} from './styles';
 
 const Dashboard: React.FC = () => {
   return (
     <Container>
-      <Header />
+      <Header onPress={() => {}} />
+      <HighLightCards>
+        <HighLightCard />
+        <HighLightCard />
+        <HighLightCard />
+      </HighLightCards>
     </Container>
   );
 };
